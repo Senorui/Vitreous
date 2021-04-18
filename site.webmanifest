@@ -1,0 +1,41 @@
+{
+    "lang": "zh-CN",
+    "name": "佚搜",
+    "short_name": "佚搜",
+    "description": "这是一个透明风格的个人搜索导航。",
+    "theme_color": "#abd7ff",
+    "background_color": "#abd7ff",
+    "start_url": "/",
+    "Scope": "/",
+    "display": "standalone",
+    "minPlatformVersion": 1065,
+    "icons": [{
+        "src": "/icon/favicon-48x48.png",
+        "type": "image/png",
+        "sizes": "48x48"
+    },{    
+        "src": "/icon/favicon-64x64.png",
+        "type": "image/png",
+        "sizes": "64x64"
+    },{  
+        "src": "/icon/favicon-96x96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+    },{     
+         "src": "/icon/favicon-128x128.png",
+        "type": "image/png",
+        "sizes": "128x128"
+    },{   
+        "src": "/icon/favicon-152x152.png",
+        "type": "image/png",
+        "sizes": "152x152"
+    },{ 
+        "src": "/icon/apple-icon-180x180.png",
+        "sizes": "180x180",
+        "type": "image/png"
+    },{
+        "src": "/icon/android-icon-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+    }]
+}

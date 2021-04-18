@@ -1,0 +1,526 @@
+@charset "utf-8";
+
+/* 微调天气插件样式 */
+.wv-top-select,
+.wv-top-select-option,
+button.wv-top-button {
+    border-radius: 3px!important;
+    font-size: 10px!important;
+}
+
+@media (prefers-color-scheme: dark) {
+    html, body {
+        background-color: #121212!important;
+        background-image: url(./icon/Bgd.webp)!important; /* 深色模式下首页不显示背景图 */
+    }
+    /* 天气城市选择框 */
+    .wv-top-select,
+    .wv-top-select-option,
+    button.wv-top-button {
+        background-color: #202324;
+        color: #f4f4f4;
+    }
+    .con .sou form .wd {
+        border-color: #fff!important;
+    }
+    .con .sou ul li {
+        color: #fff!important;
+        background-color: rgb(192 192 192 / 30%)!important;
+        box-shadow: none!important; /* 深色模式下去除阴影 */
+    }
+    form, input, button {
+        color: #fff!important;
+    }
+    .foot a{
+        color: #999!important;
+    }
+    #menu.on {
+        background-color: rgba(36, 159, 253, .3)!important;
+        box-shadow: none!important;
+    }
+    .list {
+        background-color: rgb(41 53 80 / 0.3)!important;
+        box-shadow: none!important;
+    }
+    .list ul li.title {
+        color: hsl(0, 0%, 96%)!important;
+    }
+    .list ul li a {
+        color: hsla(0,0%,100%,.87)!important;
+        background-color: rgb(0 0 0 / 30%)!important;
+        box-shadow: none!important;
+    }   
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    background-image: url(./icon/Bg.webp);
+    background-color: transparent;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+html {
+    font-family: 'sans-serif', PingFangSC-Light, Microsoft YaHei UI, Microsoft YaHei, helvetica, Noto Sans SC Sliced;
+    font-weight: 300;
+    color: #000;
+}
+
+form, input, button {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+input::-webkit-input-placeholder {
+    color: #ccc;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+
+ul, li {
+    display: block;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+#content {
+    width: 100%;
+    height: 100%;
+}
+
+.con {
+    width: 100%;
+    transition: .3s all;
+    margin: auto;
+    min-width: 320px;
+    height: 380px;
+    position: absolute;
+    left: 0;
+    top: -100px;
+    right: 0;
+    bottom: 0;
+}
+
+
+.con .shlogo {
+    position: relative;
+    width: 480px;
+    height: 120px;
+    margin: 20px auto;
+    background: url(icon/logo.svg) no-repeat center/cover;
+}
+
+.con .shlogo a {
+    width: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.con .sou {
+    max-width: 680px;
+    position: relative;
+    width: calc(100% - 60px);
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+.con .sou form {
+    width: 100%;
+    /*border: 1px solid #ddd;*/
+    height: 50px;
+    display: block;
+    margin: 10px auto 30px;
+    position: relative;
+}
+
+.con .sou form .wd {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 6px 0 rgba(60, 65, 67, 0.3);
+    border-radius: 25px;
+    border-color: #f7f7f7;
+    line-height: 100%;
+    text-indent: 20px;
+    font-size: 18px;
+}
+
+.con .sou form .wd:focus {
+    background: transparent;
+    box-shadow: 0 1px 6px 0 rgba(60, 65, 67, 0.3);
+    border-color: #f7f7f7;
+}
+
+.con .sou form button {
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    z-index: 10;
+    right: 6px;
+    top: 6px;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #777;
+}
+
+.con .sou ul {
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.con .sou ul li {
+    width: 120px;
+    margin: 0 10px;
+    float: left;
+    -webkit-tap-highlight-color: transparent;
+    background: transparent;
+    box-shadow: 0 6px 8px rgba(192,192,192, .3);
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-indent: 30px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 20px;
+}
+
+.con .sou ul li:active {
+    background: transparent;
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, .1);
+}
+
+.con .sou ul li i {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    left: 0;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    transform: scale(0.7);
+}
+
+.foot {
+    position: absolute;
+    bottom: 4px;
+    z-index: 1000;
+    text-align: center;
+    width: 100%;
+    color: #999;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+}
+
+.home {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 70px;
+    top: 10px;
+    z-index: 200;
+    cursor: pointer;
+}
+
+.home a {
+    font-size: 20px;
+    color: #999;
+    line-height: 50px;
+    display: block;
+    text-align: center;
+}
+
+#menu {
+    width: 50px;
+    height: 50px;
+    transform: scale(0.8);
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    z-index: 2000000;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#menu i {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 24px auto;
+    width: 30px;
+    height: 2px;
+    background: #1E90FF;
+}
+
+#menu i:before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    top: -8px;
+    background: #1E90FF;
+    position: absolute;
+    right: 0;
+}
+
+#menu i:after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    bottom: -8px;
+    background: #1E90FF;
+    position: absolute;
+    left: 0;
+}
+
+#menu.on {
+    right: 380px;
+    background: transparent;
+    border-radius: 25px;
+    box-shadow: 0 6px 8px rgba(36, 159, 253, .3);
+}
+
+#menu.on i {
+    width: 20px;
+    background: #1E90FF;
+}
+
+#menu.on i:before {
+    top: -5px;
+    transform: rotate(45deg);
+    width: 14px;
+    right: -1px;
+    left: auto;
+    background: #1E90FF;
+}
+
+#menu.on i:after {
+    bottom: -5px;
+    transform: rotate(-45deg);
+    width: 14px;
+    right: -1px;
+    left: auto;
+    background: #1E90FF;
+}
+
+.list {
+    width: 337px;
+    padding: 0 20px;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    right: 0px;
+    z-index: 2000;
+    background: hsl(0deg 0% 0% / .06);
+    transition: 0.3s all linear;
+    box-shadow: 0 6px 8px rgba(192,192,192, .3);
+}
+
+.list.closed {
+    right: -380px;
+}
+
+.list ul {
+    width: 330px;
+    float: left;
+    padding: 0 0 20px;
+    margin-bottom: 20px;
+    
+}
+
+.list ul li {
+    float: left;
+    margin: 5px;
+    width: 100px;
+    height: 30px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.list ul li a {
+    width: 100%;
+    border-radius: 5px;
+    transition: 0.2s all linear;
+    height: 100%;
+    display: block;
+    color: #322d2d;
+    font-weight: 500;
+    background: hsl(206deg 70% 80% / .6);
+    text-align: left;
+    font-size: 12px;
+    box-shadow: 0 6px 8px rgba(192,192,192, .3);
+}
+
+
+.list ul li.title {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin: 30px 0 0;
+    text-align: left;
+    text-indent: 10px;
+    /*border-bottom: 1px dashed #dedede;*/
+    color: #686565;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mywth {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    font-size: 12px;
+    height: 20px;
+    width: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    z-index: 100000; 
+}
+
+svg.icon {
+    width: 14px;
+    height: 14px;
+    margin: 0 5px 0 8px;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.list ul li.title svg.icon {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 640px) {
+    .con {
+        top: 0px;
+    }
+
+    .con .shlogo {
+        width: 320px;
+        height: 100px;
+    }
+
+    .con .sou form .wd:focus {
+        background: #f1f1f1;
+        box-shadow: none;
+        border-color: #ccc
+    }
+
+    .con .sou form button {
+        border-radius: 25px;
+    }
+
+    #menu.on {
+        right: 270px;
+    }
+
+    .list {
+        width: 227px;
+    }
+
+    .list ul {
+        width: 220px;
+    }
+
+    .con .sou ul li {
+        width: 100px;
+        font-size: 12px;
+        text-indent: 30px;
+    }
+
+    .home,
+    #menu {
+        top: 5px;
+    }
+
+    .mywth {
+        color: #777;
+        left: 10px;
+        top: 20px;
+        overflow: hidden;
+
+    }
+
+    .mywth.hidden {
+        display: none;
+    }
+}
+
+@media (max-height: 420px) {
+    .con {
+        margin: 0;
+        top: 0px;
+    }
+
+    .con .sou form .wd {
+        text-indent: 50px;
+    }
+
+    .con .sou form:after {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        background: url(icon/lg.svg) no-repeat center/cover;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .con .shlogo {
+        display: none;
+    }
+
+    .home,
+    #menu,
+    .mywth,
+    .foot {
+        display: none;
+    }
+}
+
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D8BFD8;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #D8BFD8;
+}
